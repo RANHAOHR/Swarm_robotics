@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot 
-     xmlns:xacro="http://www.ros.org/wiki/xacro" name="swarm_1">
+     xmlns:xacro="http://www.ros.org/wiki/xacro" name="swarm_5">
      <!-- define the base-link origin to lie at floor level, between the drive wheels-->
      <!--main body is a simple box; origin is a center of box-->
     <xacro:property name="bodylen" value="0.5" />
@@ -324,7 +324,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_lidar_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/scan1</topicName>
+        <topicName>/scan5</topicName>
         <frameName>lidar_link</frameName>
       </plugin>
     </sensor>
