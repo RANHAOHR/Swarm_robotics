@@ -26,13 +26,13 @@
 
     <xacro:property name="M_PI" value="3.1415926535897931" />
     <xacro:property name="boschwidth" value="0.0381" />
-    <xacro:property name="casterdrop" value="0.125" />
+    <xacro:property name="casterdrop" value="0.085" />
     <xacro:property name="bracketwidth" value="0.1175" />
     <xacro:property name="bracketheight" value="0.16" />
     <xacro:property name="bracketthick" value="0.0308" />
     <xacro:property name="bracketangle" value="0.3854" />
     <xacro:property name="casterwidth" value="0.0826" />
-    <xacro:property name="casterdiam" value="0.0986" />
+    <xacro:property name="casterdiam" value="0.1986" />
     
     <!--here is a default inertia matrix with small, but legal values; use this when don't need accuracy for I -->
     <!--model will assign inertia matrix dominated by main body box -->
