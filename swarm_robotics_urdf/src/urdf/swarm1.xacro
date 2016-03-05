@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot 
-     xmlns:xacro="http://www.ros.org/wiki/xacro" name="test_try">
+     xmlns:xacro="http://www.ros.org/wiki/xacro" name="swarm1">
      <!-- define the base-link origin to lie at floor level, between the drive wheels-->
      <!--main body is a simple box; origin is a center of box-->
     <xacro:property name="bodylen" value="0.0154" />
