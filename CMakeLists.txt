@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(swarm_robotics_urdf)
+project(swarm_robotics)
 
 find_package(catkin_simple REQUIRED)
 

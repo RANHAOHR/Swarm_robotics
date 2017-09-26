@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>swarm_robotics_urdf</name>
+  <name>swarm_robotics</name>
   <version>0.0.0</version>
   <description>The swarm_robotics_urdf package</description>
   
