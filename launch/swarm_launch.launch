@@ -1,23 +1,39 @@
 <launch>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="headless" value="false"/>
-    <arg name="debug" value="false"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <group ns="robot1">
-    <param name="tf_prefix" value="robot1"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/urdf/iRobot.urdf'" /> 
 
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/urdf/iRobot.urdf'" />
-          
+<arg name="ns" default="/num_1" />
+
+  <group ns="$(arg ns)">
+
+    <include file="$(find swarm_robotics)/launch/spawn_robot.launch">
+      <arg name="name" value="$(arg ns)"/>
+      <arg name="pos_x" value="0.1"/>
+    </include>
+
     <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model irobot" />  
-
   </group>
+
+  <include file="$(find swarm_robotics)/launch/joint_controller.launch">
+  </include>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+  <param name="rate" value="100" /> 
         <!-- start robot state publisher -->
 <!--         <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher1" >
             <param name="publish_frequency" type="double" value="50.0" />

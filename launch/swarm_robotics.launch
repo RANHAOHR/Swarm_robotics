@@ -11,7 +11,7 @@
     <group ns="robot1">
         <param name="tf_prefix" value="robot1"/>
         
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm1.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm1.xacro'" />
         
         <!-- push robot_description to factory and spawn robot in gazebo -->
         <node name="spawn_robot1" pkg="gazebo_ros" type="spawn_model"
@@ -30,7 +30,7 @@
     <group ns="robot2">
         <param name="tf_prefix" value="robot2"/>
                
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm2.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm2.xacro'" />
         
 
         <!-- push robot_description to factory and spawn robot in gazebo -->
@@ -51,7 +51,7 @@
     <group ns="robot3">
         <param name="tf_prefix" value="robot3"/>
                
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm3.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm3.xacro'" />
         
         <!-- push robot_description to factory and spawn robot in gazebo -->
         <node name="spawn_robot3" pkg="gazebo_ros" type="spawn_model"
@@ -72,7 +72,7 @@
     <group ns="robot4">
         <param name="tf_prefix" value="robot4"/>
                
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm4.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm4.xacro'" />
         
         <!-- push robot_description to factory and spawn robot in gazebo -->
         <node name="spawn_robot4" pkg="gazebo_ros" type="spawn_model"
@@ -93,7 +93,7 @@
     <group ns="robot5">
         <param name="tf_prefix" value="robot5"/>
                
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm5.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm5.xacro'" />
         
         <!-- push robot_description to factory and spawn robot in gazebo -->
         <node name="spawn_robot5" pkg="gazebo_ros" type="spawn_model"
@@ -114,7 +114,7 @@
     <group ns="robot6">
         <param name="tf_prefix" value="robot6"/>
                
-        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics_urdf)/src/urdf/swarm6.xacro'" />
+        <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/src/urdf/swarm6.xacro'" />
         
         <!-- push robot_description to factory and spawn robot in gazebo -->
         <node name="spawn_robot6" pkg="gazebo_ros" type="spawn_model"
