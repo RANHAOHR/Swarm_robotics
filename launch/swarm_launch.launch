@@ -15,28 +15,32 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/urdf/iRobot.urdf'" /> 
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/urdf/iRobot1.urdf'" /> 
 
-<arg name="ns" default="/num_1" />
 
-  <group ns="$(arg ns)">
+  <group ns="/robot1">
 
     <include file="$(find swarm_robotics)/launch/spawn_robot.launch">
-      <arg name="name" value="$(arg ns)"/>
+      <arg name="name" value="/robot1"/>
+      <arg name="model" default="$(find swarm_robotics)/urdf/iRobot1.urdf" />
       <arg name="pos_x" value="0.1"/>
     </include>
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> -->
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+  </group>
 
+  <group ns="/robot2">
+
+    <include file="$(find swarm_robotics)/launch/spawn_robot.launch">
+      <arg name="name" value="/robot2"/>
+      <arg name="model" default="$(find swarm_robotics)/urdf/iRobot2.urdf" />
+      <arg name="pos_x" value="1"/>
+    </include>
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> -->
     <!-- push robot_description to factory and spawn robot in gazebo -->
   </group>
 
   <include file="$(find swarm_robotics)/launch/joint_controller.launch">
   </include>
-
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
-  <param name="rate" value="100" /> 
-        <!-- start robot state publisher -->
-<!--         <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher1" >
-            <param name="publish_frequency" type="double" value="50.0" />
-        </node> -->
 
 </launch>

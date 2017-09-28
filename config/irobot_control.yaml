@@ -1,4 +1,21 @@
-irobot:
+robot1:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  wheels_position_controller:
+    type        : "diff_drive_controller/DiffDriveController"
+    left_wheel  : 'left_wheel_rot_joint'
+    right_wheel : 'right_wheel_rot_joint'
+    publish_rate: 50.0               # default: 50
+    pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    wheel_separation : 0.28
+    wheel_radius : 0.06
+
+robot2:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
