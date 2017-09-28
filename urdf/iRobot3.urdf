@@ -436,7 +436,7 @@
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/robot1</robotNamespace>
+      <robotNamespace>/robot3</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
@@ -477,7 +477,7 @@
   </gazebo>
   <gazebo reference="chassis">
     <gravity>true</gravity>
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Yellow</material>
   </gazebo>
   <gazebo>
     <static>false</static>
