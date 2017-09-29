@@ -401,7 +401,6 @@
     </sensor>
   </gazebo>
 
-
   <xacro:arg name="control" default="number"/>
   <xacro:control_num number = "$(arg control)"/>
   <xacro:macro name="control_num" params="number">

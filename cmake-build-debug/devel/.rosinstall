@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ranhao/ros_ws/src/swarm_robotics/cmake-build-debug/devel/setup.sh
