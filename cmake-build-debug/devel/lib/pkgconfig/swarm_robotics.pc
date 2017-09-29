@@ -1,8 +1,0 @@
-prefix=/home/ranhao/ros_ws/src/swarm_robotics/cmake-build-debug/devel
-
-Name: swarm_robotics
-Description: Description of swarm_robotics
-Version: 0.0.0
-Cflags: -I/home/ranhao/ros_ws/src/swarm_robotics/include
-Libs: -L/home/ranhao/ros_ws/src/swarm_robotics/cmake-build-debug/devel/lib 
-Requires: 
