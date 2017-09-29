@@ -4,9 +4,10 @@
   <arg name="pos_x" default="0.0"/>
   <arg name="pos_y" default="0.0"/>
   <arg name="pos_z" default="0.0"/>
+  <arg name="model" default="$(find swarm_robotics)/urdf/iRobot1.xacro" />
+  <!-- <arg name="control_param" default="/robot"/>    -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)' control:=/robot1"/>
 
-  <arg name="model" default="$(find swarm_robotics)/urdf/iRobot1.urdf" />
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'" />
 
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
         args="-param robot_description

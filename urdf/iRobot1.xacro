@@ -434,21 +434,20 @@
     </sensor>
   </gazebo>
 
+
+  <xacro:arg name="control" default="number"/>
+  <xacro:control_num number = "$(arg control)"/>
+  <xacro:macro name="control_num" params="number">
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/robot3</robotNamespace>
+      <robotNamespace>${number}</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
-  <!--    <xacro:model_shelf name="first_shelf" 
-                       parent="chassis"
-                       height="0.15">
-    </xacro:model_shelf>-->
-  <!--    <xacro:model_shelf name="second_shelf" 
-                       parent="first_shelf"
-                       height="0.25">
-    </xacro:model_shelf>
-    -->
+  </xacro:macro>
+
+
+
   <gazebo reference="base_link">
     </gazebo>
   <gazebo reference="ground">
@@ -477,7 +476,7 @@
   </gazebo>
   <gazebo reference="chassis">
     <gravity>true</gravity>
-    <material>Gazebo/Yellow</material>
+    <material>Gazebo/Black</material>
   </gazebo>
   <gazebo>
     <static>false</static>

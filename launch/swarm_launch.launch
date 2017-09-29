@@ -19,14 +19,15 @@
 
     <include file="$(find swarm_robotics)/launch/spawn_robot.launch">
       <arg name="name" value="/robot1"/>
-      <arg name="model" default="$(find swarm_robotics)/urdf/iRobot1.urdf" />
+      <arg name="model" default="$(find swarm_robotics)/urdf/iRobot1.xacro" />
+      <!-- <arg name="control_param" value="/robot1"/> -->
       <arg name="pos_x" value="0.1"/>
     </include>
   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> -->
 
   </group>
 
-  <group ns="/robot2">
+<!--   <group ns="/robot2">
 
     <include file="$(find swarm_robotics)/launch/spawn_robot.launch">
       <arg name="name" value="/robot2"/>
@@ -45,9 +46,9 @@
       <arg name="pos_y" value="1"/>
     </include>
 
-  </group>
+  </group> -->
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/urdf/iRobot1.urdf'" /> 
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find swarm_robotics)/urdf/iRobot1.xacro'" /> 
   <!-- launch the controller manager -->
   <include file="$(find swarm_robotics)/launch/joint_controller.launch">
   </include>
