@@ -1,16 +1,9 @@
-# SWARM_ROBOTS_urdf
+# SWARM_ROBOTICS
 
-Your description goes here
+Using Deep Reinforcement learning for Multi robotics system cooperative control and navigation. 
 
-## Example usage
+- To start the the group of robots
 
-## Running tests/demos
-
-Run one robot, which is "test_try":
-
-'roslaunch swarm_robotics_urdf swarm_launch.launch'
-Run a swarm,try:
-
-'roalaunch swarm_robotics_urdf swarm_robotics.launch'
+'roslaunch swarm_robotics swarm_launch.launch'
 
     
