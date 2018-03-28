@@ -1,10 +1,6 @@
 # SWARM_ROBOTS_urdf
 
-Your description goes here
-
 ## Example usage
-
-## Running tests/demos
 
 Run one robot, which is "test_try":
 
