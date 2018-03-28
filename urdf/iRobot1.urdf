@@ -264,6 +264,7 @@
       </geometry>
     </collision>
   </link>
+
   <!-- Laser link and plugin -->
   <joint name="hokuyo_laser_joint" type="fixed">
     <axis xyz="0 0 1"/>
@@ -302,13 +303,13 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14159</min_angle>
-            <max_angle>3.14159</max_angle>
+            <min_angle>-1.14159</min_angle>
+            <max_angle>1.14159</max_angle>
           </horizontal>
         </scan>
         <range>
           <min>0.2</min>
-          <max>40</max>
+          <max>1</max>
           <resolution>0.025</resolution>
         </range>
         <noise>
@@ -318,7 +319,7 @@
         </noise>
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
-        <robotNamespace>/iRobot</robotNamespace>
+        <robotNamespace>/robot1</robotNamespace>
         <topicName>laser_scan</topicName>
         <frameName>hokuyo_laser_link</frameName>
       </plugin>
@@ -507,7 +508,7 @@
       <alwaysOn>true</alwaysOn>
     </plugin>
     <plugin filename="libgazebo_ros_imu.so" name="imu_plugin">
-      <bodyName>base_link</bodyName>
+      <bodyName>imu_sensor_link</bodyName>
       <updateRate>100.0</updateRate>
       <topicName>imu_data</topicName>
       <serviceName>imu_service</serviceName>

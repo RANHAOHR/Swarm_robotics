@@ -11,6 +11,6 @@ Run one robot, which is "test_try":
 'roslaunch swarm_robotics_urdf swarm_launch.launch'
 Run a swarm,try:
 
-'roalaunch swarm_robotics_urdf swarm_robotics.launch'
+'roslaunch swarm_robotics_urdf swarm_robotics.launch'
 
     

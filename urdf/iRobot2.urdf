@@ -302,13 +302,13 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14159</min_angle>
-            <max_angle>3.14159</max_angle>
+            <min_angle>-1.14159</min_angle>
+            <max_angle>1.14159</max_angle>
           </horizontal>
         </scan>
         <range>
           <min>0.2</min>
-          <max>40</max>
+          <max>1</max>
           <resolution>0.025</resolution>
         </range>
         <noise>
@@ -318,7 +318,7 @@
         </noise>
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
-        <robotNamespace>/iRobot</robotNamespace>
+        <robotNamespace>/robot2</robotNamespace>
         <topicName>laser_scan</topicName>
         <frameName>hokuyo_laser_link</frameName>
       </plugin>
@@ -477,7 +477,7 @@
   </gazebo>
   <gazebo reference="chassis">
     <gravity>true</gravity>
-    <material>Gazebo/Yellow</material>
+    <material>Gazebo/Black</material>
   </gazebo>
   <gazebo>
     <static>false</static>
