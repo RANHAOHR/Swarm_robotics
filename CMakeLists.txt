@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(swarm_robotics)
+project(multiAgent_system_modeling)
 
 find_package(catkin_simple REQUIRED)
 
