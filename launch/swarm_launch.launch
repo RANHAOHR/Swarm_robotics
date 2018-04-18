@@ -20,7 +20,7 @@
     <include file="$(find multiAgent_system_modeling)/launch/spawn_robot.launch">
       <arg name="name" value="/robot1"/>
       <arg name="model" default="$(find multiAgent_system_modeling)/urdf/iRobot1.urdf" />
-      <arg name="pos_x" value="0.1"/>
+      <arg name="pos_y" value="0.5"/>
     </include>
   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> -->
 
@@ -31,7 +31,7 @@
     <include file="$(find multiAgent_system_modeling)/launch/spawn_robot.launch">
       <arg name="name" value="/robot2"/>
       <arg name="model" default="$(find multiAgent_system_modeling)/urdf/iRobot2.urdf" />
-      <arg name="pos_x" value="1"/>
+      <arg name="pos_y" value="-0.5"/>
     </include>
 
   </group>
@@ -41,11 +41,12 @@
     <include file="$(find multiAgent_system_modeling)/launch/spawn_robot.launch">
       <arg name="name" value="/robot3"/>
       <arg name="model" default="$(find multiAgent_system_modeling)/urdf/iRobot3.urdf" />
-      <arg name="pos_x" value="1"/>
-      <arg name="pos_y" value="1"/>
+      <arg name="pos_y" value="0"/>
+      <arg name="pos_x" value="-0.5"/>
     </include>
 
   </group>
+
 
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find multiAgent_system_modeling)/urdf/iRobot1.urdf'" /> 
   <!-- launch the controller manager -->
