@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: multiAgent_system_modeling
-Description: Description of multiAgent_system_modeling
-Version: 0.0.0
-Cflags: -I/usr/local/include
-Libs: -L/usr/local/lib -lmulti_agent_controller
-Requires: roscpp std_msgs geometry_msgs nav_msgs

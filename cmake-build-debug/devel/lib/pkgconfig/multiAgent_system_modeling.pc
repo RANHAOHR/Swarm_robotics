@@ -1,8 +1,0 @@
-prefix=/home/ranhao/ros_ws/src/multiAgent_system_modeling/cmake-build-debug/devel
-
-Name: multiAgent_system_modeling
-Description: Description of multiAgent_system_modeling
-Version: 0.0.0
-Cflags: -I/home/ranhao/ros_ws/src/multiAgent_system_modeling/include
-Libs: -L/home/ranhao/ros_ws/src/multiAgent_system_modeling/cmake-build-debug/devel/lib -lmulti_agent_controller
-Requires: roscpp std_msgs geometry_msgs nav_msgs
