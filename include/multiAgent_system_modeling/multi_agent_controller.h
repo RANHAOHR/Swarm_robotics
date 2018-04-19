@@ -24,7 +24,6 @@
 #include <cstdlib>
 
 using namespace std;
-
 const double dt = 0.02; //send desired-state messages at fixed rate, e.g. 0.02 sec = 50Hz
 //dynamic parameters: should be tuned for target system
 
@@ -70,6 +69,13 @@ public:
     double v1_max;
     double v2_max;
     double v3_max;
+
+    bool avoidS1;
+    bool avoidS2;
+    bool avoidS3;
+    bool avoidS4;
+    bool avoidS5;
+
     geometry_msgs::Twist cmd1;
     geometry_msgs::Twist cmd2;
     geometry_msgs::Twist cmd3;
@@ -85,6 +91,8 @@ public:
     ros::Publisher geo_twist3;
 
     void goToPosiiton();
+
+    void avoidController();
     double pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y);
 
 };

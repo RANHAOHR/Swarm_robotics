@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     multiAgentController Controller(&nh);
 
     while(ros::ok()){
-        Controller.goToPosiiton();
+        // Controller.goToPosiiton();
         ros::spinOnce(); 
     }
     return 0;

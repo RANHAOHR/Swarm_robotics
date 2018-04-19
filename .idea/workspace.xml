@@ -2,48 +2,53 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_cpp" />
       <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_eus" />
-      <config projectName="multiAgent_system_modeling" targetName="basic_controller" />
-      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="clean_test_results" />
-      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_py" />
-      <config projectName="multiAgent_system_modeling" targetName="multi_agent_controller" />
-      <config projectName="multiAgent_system_modeling" targetName="doxygen" />
-      <config projectName="multiAgent_system_modeling" targetName="gtest" />
-      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_eus" />
-      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_py" />
-      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_py" />
-      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_eus" />
-      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="sensor_msgs_generate_messages_cpp" />
+      <config projectName="multiAgent_system_modeling" targetName="sensor_msgs_generate_messages_py" />
       <config projectName="multiAgent_system_modeling" targetName="tests" />
-      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="run_tests" />
-      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="doxygen" />
       <config projectName="multiAgent_system_modeling" targetName="gtest_main" />
-      <config projectName="multiAgent_system_modeling" targetName="download_extra_data" />
-      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_nodejs" />
-      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_py" />
-      <config projectName="multiAgent_system_modeling" targetName="_catkin_empty_exported_target" />
-      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_eus" />
-      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_lisp" />
       <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_cpp" />
-      <config projectName="multiAgent_system_modeling" targetName="multiAgent_system_modeling_package" />
-      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_cpp" />
-      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_lisp" />
-      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_cpp" />
-      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_py" />
-      <config projectName="multiAgent_system_modeling" targetName="multi_agent_control_main" />
-      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="clean_test_results" />
+      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="basic_controller" />
       <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_cpp" />
-      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_lisp" />
       <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="sensor_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="multi_agent_controller" />
+      <config projectName="multiAgent_system_modeling" targetName="sensor_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="download_extra_data" />
+      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="geometry_msgs_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="multiAgent_system_modeling_package" />
+      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="multiAgent_system_modeling" targetName="run_tests" />
+      <config projectName="multiAgent_system_modeling" targetName="_catkin_empty_exported_target" />
+      <config projectName="multiAgent_system_modeling" targetName="actionlib_msgs_generate_messages_cpp" />
+      <config projectName="multiAgent_system_modeling" targetName="rosgraph_msgs_generate_messages_cpp" />
+      <config projectName="multiAgent_system_modeling" targetName="sensor_msgs_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_nodejs" />
+      <config projectName="multiAgent_system_modeling" targetName="std_msgs_generate_messages_eus" />
+      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_py" />
+      <config projectName="multiAgent_system_modeling" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="multiAgent_system_modeling" targetName="multi_agent_control_main" />
+      <config projectName="multiAgent_system_modeling" targetName="gtest" />
+      <config projectName="multiAgent_system_modeling" targetName="nav_msgs_generate_messages_cpp" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -53,15 +58,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b8996dc-bfef-45d5-8373-6c2a0f41a56b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StateFlow/testSimROS.slx" afterPath="$PROJECT_DIR$/StateFlow/testSimROS.slx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launch/joint_controller.launch" afterPath="$PROJECT_DIR$/launch/joint_controller.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launch/swarm_launch.launch" afterPath="$PROJECT_DIR$/launch/swarm_launch.launch" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.xml" afterPath="$PROJECT_DIR$/package.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/basic_controller.cpp" afterPath="$PROJECT_DIR$/src/basic_controller.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urdf/iRobot1.urdf" afterPath="$PROJECT_DIR$/urdf/iRobot1.urdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urdf/iRobot2.urdf" afterPath="$PROJECT_DIR$/urdf/iRobot2.urdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urdf/iRobot3.urdf" afterPath="$PROJECT_DIR$/urdf/iRobot3.urdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h" afterPath="$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/multi_agent_control_main.cpp" afterPath="$PROJECT_DIR$/src/multi_agent_control_main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/multi_agent_controller.cpp" afterPath="$PROJECT_DIR$/src/multi_agent_controller.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,8 +75,18 @@
       <file leaf-file-name="multi_agent_controller.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/multi_agent_controller.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multi_agent_controller.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -94,6 +103,15 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>obstacle_dist</find>
+      <find>avoidS5</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>s1_dist</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -143,6 +161,19 @@
             <path>
               <item name="multiAgent_system_modeling" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="multiAgent_system_modeling" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="multiAgent_system_modeling" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multiAgent_system_modeling" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="multiAgent_system_modeling" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="multiAgent_system_modeling" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multiAgent_system_modeling" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="multiAgent_system_modeling" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="multiAgent_system_modeling" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="multiAgent_system_modeling" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -285,6 +316,21 @@
     <configuration name="run_tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="run_tests" CONFIG_NAME="Debug">
       <envs />
     </configuration>
+    <configuration name="sensor_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="sensor_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sensor_msgs_generate_messages_eus" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="sensor_msgs_generate_messages_eus" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sensor_msgs_generate_messages_lisp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="sensor_msgs_generate_messages_lisp" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sensor_msgs_generate_messages_nodejs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="sensor_msgs_generate_messages_nodejs" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sensor_msgs_generate_messages_py" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="sensor_msgs_generate_messages_py" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
     <configuration name="std_msgs_generate_messages_cpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="std_msgs_generate_messages_cpp" CONFIG_NAME="Debug">
       <envs />
     </configuration>
@@ -303,7 +349,7 @@
     <configuration name="tests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="multiAgent_system_modeling" TARGET_NAME="tests" CONFIG_NAME="Debug">
       <envs />
     </configuration>
-    <list size="43">
+    <list size="48">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application._catkin_empty_exported_target" />
       <item index="2" class="java.lang.String" itemvalue="Application.actionlib_msgs_generate_messages_cpp" />
@@ -339,14 +385,19 @@
       <item index="32" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_nodejs" />
       <item index="33" class="java.lang.String" itemvalue="Application.rosgraph_msgs_generate_messages_py" />
       <item index="34" class="java.lang.String" itemvalue="Application.run_tests" />
-      <item index="35" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_cpp" />
-      <item index="36" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_eus" />
-      <item index="37" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_lisp" />
-      <item index="38" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_nodejs" />
-      <item index="39" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_py" />
-      <item index="40" class="java.lang.String" itemvalue="Application.tests" />
-      <item index="41" class="java.lang.String" itemvalue="Application.gtest" />
-      <item index="42" class="java.lang.String" itemvalue="Application.gtest_main" />
+      <item index="35" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_cpp" />
+      <item index="36" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_eus" />
+      <item index="37" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_lisp" />
+      <item index="38" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_nodejs" />
+      <item index="39" class="java.lang.String" itemvalue="Application.sensor_msgs_generate_messages_py" />
+      <item index="40" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_cpp" />
+      <item index="41" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_eus" />
+      <item index="42" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_lisp" />
+      <item index="43" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_nodejs" />
+      <item index="44" class="java.lang.String" itemvalue="Application.std_msgs_generate_messages_py" />
+      <item index="45" class="java.lang.String" itemvalue="Application.tests" />
+      <item index="46" class="java.lang.String" itemvalue="Application.gtest" />
+      <item index="47" class="java.lang.String" itemvalue="Application.gtest_main" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -361,11 +412,12 @@
       <updated>1524085372887</updated>
       <workItem from="1524085374073" duration="46000" />
       <workItem from="1524087619640" duration="1534000" />
+      <workItem from="1524167348813" duration="2128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1580000" />
+    <option name="totallyTimeSpent" value="3708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2212" y="24" width="1857" height="1092" extended-state="6" />
@@ -419,6 +471,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/multi_agent_controller.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/multi_agent_control_main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -435,10 +495,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/multi_agent_control_main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/multi_agent_controller.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="324">
+          <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
           <folding />
         </state>
       </provider>
