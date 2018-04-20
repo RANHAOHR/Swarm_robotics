@@ -61,6 +61,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h" afterPath="$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/multi_agent_control_main.cpp" afterPath="$PROJECT_DIR$/src/multi_agent_control_main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/multi_agent_controller.cpp" afterPath="$PROJECT_DIR$/src/multi_agent_controller.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urdf/iRobot1.urdf" afterPath="$PROJECT_DIR$/urdf/iRobot1.urdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urdf/iRobot2.urdf" afterPath="$PROJECT_DIR$/urdf/iRobot2.urdf" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,8 +77,8 @@
       <file leaf-file-name="multi_agent_controller.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/multi_agent_controller.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
+            <state relative-caret-position="381">
+              <caret line="234" column="9" lean-forward="true" selection-start-line="234" selection-start-column="9" selection-end-line="234" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -85,8 +87,8 @@
       <file leaf-file-name="multi_agent_controller.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+            <state relative-caret-position="346">
+              <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -95,8 +97,8 @@
       <file leaf-file-name="multi_agent_control_main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/multi_agent_control_main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+            <state relative-caret-position="216">
+              <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -108,9 +110,13 @@
     <findStrings>
       <find>obstacle_dist</find>
       <find>avoidS5</find>
+      <find>avoidS1</find>
+      <find>avoidS2</find>
+      <find>avoidS1_front</find>
     </findStrings>
     <replaceStrings>
       <replace>s1_dist</replace>
+      <replace>s1_dist_l</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -121,6 +127,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/multi_agent_control_main.cpp" />
         <option value="$PROJECT_DIR$/src/multi_agent_controller.cpp" />
+        <option value="$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h" />
       </list>
     </option>
   </component>
@@ -412,12 +419,12 @@
       <updated>1524085372887</updated>
       <workItem from="1524085374073" duration="46000" />
       <workItem from="1524087619640" duration="1534000" />
-      <workItem from="1524167348813" duration="2128000" />
+      <workItem from="1524167348813" duration="5971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3708000" />
+    <option name="totallyTimeSpent" value="7551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2212" y="24" width="1857" height="1092" extended-state="6" />
@@ -497,24 +504,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/multi_agent_control_main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+        <state relative-caret-position="216">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/multiAgent_system_modeling/multi_agent_controller.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        <state relative-caret-position="346">
+          <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/multi_agent_controller.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
+        <state relative-caret-position="381">
+          <caret line="234" column="9" lean-forward="true" selection-start-line="234" selection-start-column="9" selection-end-line="234" selection-end-column="9" />
           <folding />
         </state>
       </provider>

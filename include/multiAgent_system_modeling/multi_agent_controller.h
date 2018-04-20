@@ -70,11 +70,13 @@ public:
     double v2_max;
     double v3_max;
 
-    bool avoidS1;
-    bool avoidS2;
-    bool avoidS3;
-    bool avoidS4;
-    bool avoidS5;
+    bool avoidS1_front;
+    bool avoidS1_left;
+    bool avoidS1_right;
+
+    bool avoidS2_front;
+    bool avoidS2_left;
+    bool avoidS2_right;
 
     geometry_msgs::Twist cmd1;
     geometry_msgs::Twist cmd2;

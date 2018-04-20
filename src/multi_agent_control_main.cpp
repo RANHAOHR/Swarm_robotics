@@ -10,6 +10,7 @@ int main(int argc, char **argv) {
 
     while(ros::ok()){
         // Controller.goToPosiiton();
+        Controller.avoidController();
         ros::spinOnce(); 
     }
     return 0;

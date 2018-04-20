@@ -43,11 +43,12 @@ multiAgentController::multiAgentController(ros::NodeHandle *nh) : nh_( *nh ) {
     turn_r3 = true;
 
     /* the flags for sensing region*/
-    avoidS1 = false;
-    avoidS2 = false;
-    avoidS3 = false;
-    avoidS4 = false;
-    avoidS5 = false;
+    avoidS1_front = false;
+    avoidS1_left = false;
+    avoidS1_right = false;
+    avoidS2_front = false;
+    avoidS2_left = false;
+    avoidS2_right = false;
 
 }
 
@@ -71,14 +72,14 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
     double angle_min_ = msg.angle_min;
     double angle_increment_ = msg.angle_increment;
    
-    double s1_upper_index = (int) ((M_PI /6 - angle_min_)/angle_increment_);
-    double s1_lower_index = (int) ((-M_PI /6 - angle_min_)/angle_increment_);
+    double upper_index = (int) ((M_PI /6 - angle_min_)/angle_increment_);
+    double lower_index = (int) ((-M_PI /6 - angle_min_)/angle_increment_);
     // double front_ping_index_ = (int) ((0.0 -angle_min_)/angle_increment_);
     double s1_dist = 0.0;
     int cnt = 0;
     int void_cnt = 0;
 
-    for (int i = s1_lower_index; i < s1_upper_index; ++i)
+    for (int i = lower_index; i < upper_index; ++i)
     {
         if (!isinf(msg.ranges[i]))
           {
@@ -88,42 +89,69 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
             void_cnt += 1; //no obstacles
           } 
     }
-    if (abs(void_cnt - abs(s1_upper_index - s1_lower_index)) > 2 )
+    if (abs(void_cnt - abs(upper_index - lower_index)) > 2 )
     {
        s1_dist = s1_dist / cnt;
-       avoidS1 = true;  
+       avoidS1_front = true;  
     } 
-    else avoidS1 = false;
+    else avoidS1_front = false;
 
-    double s4_upper_index = (int) ((1.6 - angle_min_)/angle_increment_);
-    double s4_lower_index = (int) ((1.4 - angle_min_)/angle_increment_);
+    upper_index = (int) ((1.6 - angle_min_)/angle_increment_);
+    lower_index = (int) ((1.4 - angle_min_)/angle_increment_);
 
     //region 4
-    double s4_dist = 0.0;
+    double s1_dist_l = 0.0;
     cnt = 0;
     void_cnt = 0;
 //    ROS_INFO_STREAM("upper_index: "<< s4_upper_index);
 //    ROS_INFO_STREAM("lower_index: "<< s4_lower_index);
-    for (int i = s4_lower_index; i < s4_upper_index; ++i)
+    for (int i = lower_index; i < upper_index; ++i)
     {
         if (!isinf(msg.ranges[i]))
         {
-            s4_dist += msg.ranges[i];
+            s1_dist_l += msg.ranges[i];
             cnt += 1;
         } else{
             void_cnt += 1; //no obstacles
         }
     }
-    if (abs(void_cnt - abs(s4_upper_index - s4_lower_index)) > 2 )
+    if (abs(void_cnt - abs(upper_index - lower_index)) > 2 )
     {
-        s4_dist = s4_dist / cnt;
-        avoidS4 = true;
+        s1_dist_l = s1_dist_l / cnt;
+        avoidS1_left = true;
     }
-    else avoidS4 = false;
+    else avoidS1_left = false;
 
-//    ROS_INFO_STREAM("-------------s1_dist R1: " << s1_dist);
-//    ROS_INFO_STREAM("-------------s4_dist R1: " << s4_dist);
-//    ROS_INFO_STREAM("avoidS1 : " << avoidS1);
+    upper_index = (int) ((-1.6 - angle_min_)/angle_increment_);
+    lower_index = (int) ((-1.4 - angle_min_)/angle_increment_);
+
+    //region 4
+    double s1_dist_r = 0.0;
+    cnt = 0;
+    void_cnt = 0;
+//    ROS_INFO_STREAM("upper_index: "<< s4_upper_index);
+//    ROS_INFO_STREAM("lower_index: "<< s4_lower_index);
+    for (int i = lower_index; i < upper_index; ++i)
+    {
+        if (!isinf(msg.ranges[i]))
+        {
+            s1_dist_r += msg.ranges[i];
+            cnt += 1;
+        } else{
+            void_cnt += 1; //no obstacles
+        }
+    }
+    if (abs(void_cnt - abs(upper_index - lower_index)) > 2 )
+    {
+        s1_dist_r = s1_dist_r / cnt;
+        avoidS1_right = true;
+    }
+    else avoidS1_right = false;
+
+
+    ROS_INFO_STREAM("-------------s1_dist R1: " << s1_dist);
+    ROS_INFO_STREAM("-------------s1_dist_l R1: " << s1_dist_r);
+    ROS_INFO_STREAM("avoidS1_right : " << avoidS1_right);
 
 }
 
@@ -181,7 +209,7 @@ void multiAgentController::lidar2Callback(const sensor_msgs::LaserScan& msg)
 
 //    ROS_INFO_STREAM("-------------s2_dist R2: " << s2_dist);
 //    ROS_INFO_STREAM("-------------s3_dist R2: " << s3_dist);
-//    ROS_INFO_STREAM("avoidS1 : " << avoidS2);
+//    ROS_INFO_STREAM("avoidS1_front : " << avoidS2);
 }
 
 void multiAgentController::lidar3Callback(const sensor_msgs::LaserScan& msg)
@@ -230,8 +258,8 @@ void multiAgentController::lidar3Callback(const sensor_msgs::LaserScan& msg)
     }
     else avoidS5 = false;
 
-    ROS_INFO_STREAM("-------------s5_dist R3: " << s5_dist);
-    ROS_INFO_STREAM("avoidS5 : " << avoidS5);
+//    ROS_INFO_STREAM("-------------s5_dist R3: " << s5_dist);
+//    ROS_INFO_STREAM("avoidS5 : " << avoidS5);
 }
 
 double multiAgentController::pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y)
@@ -290,5 +318,47 @@ void multiAgentController::goToPosiiton(){
 }
 
 void multiAgentController::avoidController(){
+    if (avoidS1_front)
+    {
+        ROS_INFO_STREAM("IN avoid S1");
+        cmd1.angular.z = 0.1;
+        cmd2.angular.z = 0.1;
+        cmd3.angular.z = 0.1;
 
+        geo_twist1.publish(cmd1);
+        geo_twist2.publish(cmd2);
+        geo_twist3.publish(cmd3);
+
+    }
+
+    if (!avoidS1_front && avoidS4){
+        ROS_INFO_STREAM("Stop w");
+        cmd1.angular.z = 0.0;
+        cmd2.angular.z = 0.0;
+        cmd3.angular.z = 0.0;
+        cmd1.linear.x = 0.1;
+        cmd2.linear.x = 0.1;
+        cmd3.linear.x = 0.1;
+
+        geo_twist1.publish(cmd1);
+        geo_twist2.publish(cmd2);
+        geo_twist3.publish(cmd3);
+
+    }
+    if(!avoidS1_front && !avoidS4) {
+        cmd1.linear.x = 0.0;
+        cmd2.linear.x = 0.0;
+        cmd3.linear.x = 0.0;
+
+        cmd1.angular.z = 0.0;
+        cmd2.angular.z = 0.0;
+        cmd3.angular.z = 0.0;
+
+        geo_twist1.publish(cmd1);
+        geo_twist2.publish(cmd2);
+        geo_twist3.publish(cmd3);
+
+        /*recompute the point-to-point path */
+    }
+    ros::Duration(dt).sleep();
 }
