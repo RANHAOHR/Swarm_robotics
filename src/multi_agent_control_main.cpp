@@ -7,9 +7,12 @@ int main(int argc, char **argv) {
     ros::NodeHandle nh;
  
     multiAgentController Controller(&nh);
+    ros::Duration(1).sleep();
 
     while(ros::ok()){
-        // Controller.goToPosiiton();
+    	Controller.reOrient();
+        Controller.goToPosition();
+        // Controller.avoidController();
         ros::spinOnce(); 
     }
     return 0;
