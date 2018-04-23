@@ -74,8 +74,15 @@ public:
     bool turn_w2;
     bool turn_w3;
 
-    bool orient;
-    double real_theta;
+    bool ORIENT;
+    bool GO;
+
+    bool AVOID;
+    bool SAFE;
+
+    double relative_theta1;
+    double relative_theta2;
+    double relative_theta3;
 
     std::vector<double> twist_1;
     std::vector<double> twist_2;
@@ -84,20 +91,13 @@ public:
     double v2_max;
     double v3_max;
 
-<<<<<<< HEAD
-    bool avoidS1_front;
-    bool avoidS1_left;
-    bool avoidS1_right;
-
-    bool avoidS2_front;
-    bool avoidS2_left;
-    bool avoidS2_right;
-=======
     double w1_max;
     double w2_max;
     double w3_max;
 
-    double des_theta;
+    double des_theta1;
+    double des_theta2;
+    double des_theta3;
 
     bool avoidS1_front;
     bool avoidS1_left;
@@ -108,7 +108,6 @@ public:
 
     bool group_left;
     bool group_right;
->>>>>>> 327315dfe93f6511684429086a81950598370d0e
 
     geometry_msgs::Twist cmd1;
     geometry_msgs::Twist cmd2;
@@ -127,7 +126,9 @@ public:
     void goToPosition();
     void reOrient();
     void avoidController();
-    std::vector<double> pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y);
+    void basicController();
+    void reCompute();
+    std::vector<double> pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y, double &des_theta, double &relative_theta);
 
 };
 

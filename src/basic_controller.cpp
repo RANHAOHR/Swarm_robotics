@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
     bool turn_r1 = true;
     bool turn_r2 = true;
     bool turn_r3 = true;
-    
+
     while(ros::ok()){
         ROS_INFO_STREAM("v1_max "<< v1_max);
         ROS_INFO_STREAM("v2_max "<< v2_max);

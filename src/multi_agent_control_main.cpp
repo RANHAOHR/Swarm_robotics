@@ -8,17 +8,11 @@ int main(int argc, char **argv) {
  
     multiAgentController Controller(&nh);
     ros::Duration(1).sleep();
+    Controller.basicController();
+   while(ros::ok()){
 
-    while(ros::ok()){
-<<<<<<< HEAD
-        // Controller.goToPosiiton();
-        Controller.avoidController();
-=======
-    	Controller.reOrient();
-        Controller.goToPosition();
-        // Controller.avoidController();
->>>>>>> 327315dfe93f6511684429086a81950598370d0e
-        ros::spinOnce(); 
-    }
+//       Controller.avoidController();
+       ros::spinOnce();
+   }
     return 0;
 }
