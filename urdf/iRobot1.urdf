@@ -268,7 +268,7 @@
   <!-- Laser link and plugin -->
   <joint name="hokuyo_laser_joint" type="fixed">
     <axis xyz="0 0 1"/>
-    <origin rpy="0 0 0" xyz="0 0 0.06"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1"/>
     <parent link="base_link"/>
     <child link="hokuyo_laser_link"/>
   </joint>
@@ -303,8 +303,8 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-2.14159</min_angle>
-            <max_angle>2.14159</max_angle>
+            <min_angle>-2.54159</min_angle>
+            <max_angle>2.54159</max_angle>
           </horizontal>
         </scan>
         <range>

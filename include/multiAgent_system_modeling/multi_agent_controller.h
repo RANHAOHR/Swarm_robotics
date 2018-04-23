@@ -99,15 +99,13 @@ public:
     double des_theta2;
     double des_theta3;
 
-    bool avoidS1_front;
-    bool avoidS1_left;
-    bool avoidS1_right;
-    bool avoidS2_front;
-    bool avoidS2_left;
-    bool avoidS2_right;
+    std::vector< std::vector<double> > obs_s1;
+    std::vector< std::vector<double> > obs_s2;
+    std::vector< std::vector<double> > obs_s3;
 
-    bool group_left;
-    bool group_right;
+    bool avoidS1;
+    bool avoidS2;
+    bool avoidS3;
 
     geometry_msgs::Twist cmd1;
     geometry_msgs::Twist cmd2;
