@@ -48,7 +48,7 @@ private:
     ros::Subscriber lidar3;
 public: 
 
-    double delat_t;
+    double delta_t;
 
     double des_x1;
     double des_y1;
@@ -62,14 +62,29 @@ public:
     double delta_speed1;
     double delta_speed2;
     double delta_speed3;
+    double delta_w1;
+    double delta_w2;
+    double delta_w3;
+
     bool turn_r1;
     bool turn_r2;
     bool turn_r3;
 
+    bool turn_w1;
+    bool turn_w2;
+    bool turn_w3;
+
+    bool orient;
+    double real_theta;
+
+    std::vector<double> twist_1;
+    std::vector<double> twist_2;
+    std::vector<double> twist_3;
     double v1_max;
     double v2_max;
     double v3_max;
 
+<<<<<<< HEAD
     bool avoidS1_front;
     bool avoidS1_left;
     bool avoidS1_right;
@@ -77,6 +92,23 @@ public:
     bool avoidS2_front;
     bool avoidS2_left;
     bool avoidS2_right;
+=======
+    double w1_max;
+    double w2_max;
+    double w3_max;
+
+    double des_theta;
+
+    bool avoidS1_front;
+    bool avoidS1_left;
+    bool avoidS1_right;
+    bool avoidS2_front;
+    bool avoidS2_left;
+    bool avoidS2_right;
+
+    bool group_left;
+    bool group_right;
+>>>>>>> 327315dfe93f6511684429086a81950598370d0e
 
     geometry_msgs::Twist cmd1;
     geometry_msgs::Twist cmd2;
@@ -92,10 +124,10 @@ public:
     ros::Publisher geo_twist2;
     ros::Publisher geo_twist3;
 
-    void goToPosiiton();
-
+    void goToPosition();
+    void reOrient();
     void avoidController();
-    double pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y);
+    std::vector<double> pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y);
 
 };
 
