@@ -302,8 +302,8 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14159</min_angle>
-            <max_angle>3.14159</max_angle>
+            <min_angle>-2.54159</min_angle>
+            <max_angle>2.54159</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -511,7 +511,7 @@
       <updateRate>100.0</updateRate>
       <topicName>imu_data</topicName>
       <serviceName>imu_service</serviceName>
-      <gaussianNoise>0.1</gaussianNoise>
+      <gaussianNoise>0.0</gaussianNoise>
       <xyzOffset>0 0 0</xyzOffset>
       <rpyOffset>0 0 0</rpyOffset>
     </plugin>

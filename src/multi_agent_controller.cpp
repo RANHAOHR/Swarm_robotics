@@ -15,21 +15,16 @@ multiAgentController::multiAgentController(ros::NodeHandle *nh) : nh_( *nh ) {
 
     delta_t = 50; //the traveling time for robot to go to a point
 
-    des_x1 = 20; //set of destination positions
+    des_x1 = 25; //set of destination positions
     des_y1 = 0.5;
 
-    des_x2 = 20;
+    des_x2 = 25;
     des_y2 = -0.5;
 
-    des_x3 = 19.5;
+    des_x3 = 24.5;
     des_y3 = 0;
 
     sche_cnt = 0;
-    /*
-     * Compute the params for robots to tgot to the destination
-     */
-    reCompute();
-
     /* the flags for sensing region*/
     avoidS1 = false;
     avoidS2 = false;
@@ -82,8 +77,6 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
     temp_obs.resize(2);
 
     bool hit = false;
-    bool t2 = false;
-    bool t3 = false;
 
     double s1_dist = 0.0;
     int cnt = 0;
@@ -126,12 +119,18 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
     obs_s1.clear();
     for (int j = 0; j < obs_param.size(); ++j) {
 
-        if( (obs_param[j][1] > 1.5 && obs_param[j][1] < 2.0) || (obs_param[j][1] < 2.0 && fabs(obs_param[j][0] - teammate_2_angle) > 0.7 && fabs(obs_param[j][0] - teammate_3_angle) > 0.7) ){
+        if( (obs_param[j][1] > 1.5 && obs_param[j][1] < 2.0 && fabs(obs_param[j][0] - teammate_2_angle) > 0.7 && fabs(obs_param[j][0] - teammate_3_angle) > 0.7) ){
             obs_s1.push_back(obs_param[j]);
         }
 
     }
 
+//    ROS_INFO_STREAM("obs_param: " << obs_param.size());
+    for (int l = 0; l < obs_param.size(); ++l) {
+//        ROS_INFO_STREAM("obs_param: " << obs_param[l][0]);
+//        ROS_INFO_STREAM("obs_param: " << obs_param[l][1]);
+    }
+//    ROS_INFO_STREAM("obs_s1.size() " << obs_s1.size());
     for (int k = 0; k < obs_s1.size(); ++k) {
 //        ROS_INFO_STREAM("obs_s1: " << obs_s1[k][0]);
 //        ROS_INFO_STREAM("obs_s1: " << obs_s1[k][1]);
@@ -147,7 +146,6 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
     if(avoidS1 || avoidS2 || avoidS3){
         AVOID = true;
         RESCHEDULE = false;
-        avoid_go = false;
         sche_cnt = 0;
     }else{
         sche_cnt += 1;
@@ -213,10 +211,11 @@ void multiAgentController::lidar2Callback(const sensor_msgs::LaserScan& msg)
     /* sensing fusion and obstacles starts here */
     double teammate_1_angle = 1.57 - cur_orientation;
     double teammate_3_angle = 2.355 - cur_orientation;
+//    ROS_INFO_STREAM("obs_s2.size() " << obs_s2.size());
     obs_s2.clear();
     for (int j = 0; j < obs_param.size(); ++j) {
 
-        if((obs_param[j][1] > 1.5 && obs_param[j][1] < 2.0) || (obs_param[j][1] < 2.0 && fabs(obs_param[j][0] - teammate_1_angle) > 0.7 && fabs(obs_param[j][0] - teammate_3_angle) > 0.7)){
+        if((obs_param[j][1] > 1.5 && obs_param[j][1] < 2.0 && fabs(obs_param[j][0] - teammate_1_angle) > 0.7 && fabs(obs_param[j][0] - teammate_3_angle) > 0.7 ) ){
             obs_s2.push_back(obs_param[j]);
         }
 
@@ -308,13 +307,13 @@ std::vector<double> multiAgentController::pointTopoint(geometry_msgs::Pose &odom
 
 void multiAgentController::scheduler(){
 
-    ROS_INFO_STREAM("RESCHEDULE " << RESCHEDULE);
-    ROS_INFO_STREAM("GO " << GO);
-    ROS_INFO_STREAM("AVOID " << AVOID);
-
-    ROS_INFO_STREAM("avoidS1  " << avoidS1);
-    ROS_INFO_STREAM("avoidS2 " << avoidS2);
-    ROS_INFO_STREAM("sche_cnt " << sche_cnt);
+//    ROS_INFO_STREAM("RESCHEDULE " << RESCHEDULE);
+//    ROS_INFO_STREAM("GO " << GO);
+//    ROS_INFO_STREAM("AVOID " << AVOID);
+//
+//    ROS_INFO_STREAM("avoidS1  " << avoidS1);
+//    ROS_INFO_STREAM("avoidS2 " << avoidS2);
+//    ROS_INFO_STREAM("sche_cnt " << sche_cnt);
 
     if(sche_cnt == 1){
         RESCHEDULE = true;
@@ -325,7 +324,7 @@ void multiAgentController::scheduler(){
         reOrient(); //turn a certain angle first
     }
     if(GO && !AVOID){
-        ROS_INFO_STREAM("IN GO");
+//        ROS_INFO_STREAM("IN GO");
         goToPosition();
         RESCHEDULE = false;
     }
@@ -506,7 +505,8 @@ void multiAgentController::turnAngle(double des_theta){
 }
 
 void multiAgentController::avoidController(){
-
+    ros::spinOnce();
+    avoid_go = false;
     ROS_INFO_STREAM("------IN OBSTACLES!------");
     if((avoidS1 || avoidS2) && !avoidS3){
         double obs_dist1 = 1000;
@@ -537,19 +537,40 @@ void multiAgentController::avoidController(){
         ROS_INFO_STREAM("(main_angle) " << main_angle);
         if(fabs(main_angle) < 1.2){
             if(main_angle > 0){
-                des_angle = main_angle - M_PI /2;
+                des_angle = main_angle - M_PI /1.8;
             }else{
-                des_angle = M_PI /2 - main_angle;
+                des_angle = M_PI /1.8 - main_angle;
             }
             turnAngle(des_angle);
         }else if(fabs(main_angle) > 1.2 ){
             avoid_go = true;
         }
 
-        for (int i = 0; i < 200; ++i) { //give some extra
-            if((avoidS1 || avoidS2)  && avoid_go)
-            {
-                ROS_INFO_STREAM("avoiding!!!!");
+        if(avoid_go){
+            while(1){
+                ros::spinOnce();
+                ROS_INFO_STREAM("------- go avoiding--------");
+                cmd1.linear.x = 0.2;
+                cmd2.linear.x = 0.2;
+                cmd3.linear.x = 0.2;
+
+                cmd1.angular.z = 0.0;
+                cmd2.angular.z = 0.0;
+                cmd3.angular.z = 0.0;
+
+                geo_twist1.publish(cmd1);
+                geo_twist2.publish(cmd2);
+                geo_twist3.publish(cmd3);
+
+                ros::Duration(dt).sleep();
+                if(!avoidS1 && !avoidS2){
+                    break;
+                }
+
+            }
+
+            for (int i = 0; i < 100; ++i) {
+                ROS_INFO_STREAM("------- extra avoiding--------");
                 cmd1.linear.x = 0.2;
                 cmd2.linear.x = 0.2;
                 cmd3.linear.x = 0.2;
@@ -564,8 +585,10 @@ void multiAgentController::avoidController(){
 
                 ros::Duration(dt).sleep();
             }
-        }
+            sche_cnt = 0;
+            RESCHEDULE = true;
 
+        }
 
     }
 
