@@ -57,7 +57,7 @@ public:
     double des_y2;
 
     double des_x3;
-    double des_y3;   
+    double des_y3;
 
     double delta_speed1;
     double delta_speed2;
@@ -78,7 +78,10 @@ public:
     bool GO;
 
     bool AVOID;
-    bool SAFE;
+    bool RESCHEDULE;
+    int sche_cnt;
+    int last_sche_cnt;
+    bool avoid_go;
 
     double relative_theta1;
     double relative_theta2;
@@ -124,8 +127,9 @@ public:
     void goToPosition();
     void reOrient();
     void avoidController();
-    void basicController();
     void reCompute();
+    void turnAngle(double des_theta);
+    void scheduler();
     std::vector<double> pointTopoint(geometry_msgs::Pose &odom, double des_x, double des_y, double &des_theta, double &relative_theta);
 
 };
