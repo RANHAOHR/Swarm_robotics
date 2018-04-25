@@ -15,14 +15,14 @@ multiAgentController::multiAgentController(ros::NodeHandle *nh) : nh_( *nh ) {
 
     delta_t = 50; //the traveling time for robot to go to a point
 
-    des_x1 = 25; //set of destination positions
-    des_y1 = 0.5;
+    des_x1 = 10; //set of destination positions
+    des_y1 = 20.5;
 
-    des_x2 = 25;
-    des_y2 = -0.5;
+    des_x2 = 10;
+    des_y2 = 19.5;
 
-    des_x3 = 24.5;
-    des_y3 = 0;
+    des_x3 = 9.5;
+    des_y3 = 20;
 
     sche_cnt = 0;
     /* the flags for sensing region*/
@@ -126,10 +126,10 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
     }
 
 //    ROS_INFO_STREAM("obs_param: " << obs_param.size());
-    for (int l = 0; l < obs_param.size(); ++l) {
-//        ROS_INFO_STREAM("obs_param: " << obs_param[l][0]);
-//        ROS_INFO_STREAM("obs_param: " << obs_param[l][1]);
-    }
+//    for (int l = 0; l < obs_param.size(); ++l) {
+////        ROS_INFO_STREAM("obs_param: " << obs_param[l][0]);
+////        ROS_INFO_STREAM("obs_param: " << obs_param[l][1]);
+//    }
 //    ROS_INFO_STREAM("obs_s1.size() " << obs_s1.size());
     for (int k = 0; k < obs_s1.size(); ++k) {
 //        ROS_INFO_STREAM("obs_s1: " << obs_s1[k][0]);
@@ -367,7 +367,7 @@ void multiAgentController::reOrient(){
         geo_twist2.publish(cmd2);
         geo_twist3.publish(cmd3);
 
-        if (fabs(real_theta - des_theta1) < 0.005)
+        if (fabs(real_theta - des_theta1) < 0.001)
         {
             ROS_INFO_STREAM("---- Done orient ----");
             ORIENT = false;
@@ -425,12 +425,11 @@ void multiAgentController::goToPosition(){
     geo_twist2.publish(cmd2);
     geo_twist3.publish(cmd3);
 
-    if( fabs(odom1.position.x - des_x1) < 0.01){
+    if( fabs(odom1.position.x - des_x1) < 0.005){
         GO =false;
         ROS_INFO_STREAM("----DONE go to the current goal----");
     }
     ros::Duration(dt).sleep();
-
 
 }
 
@@ -442,19 +441,27 @@ void multiAgentController::turnAngle(double des_theta){
     cmd3.linear.x = 0.0;
 
     double curent_orientation1 = 2 * atan2( odom1.orientation.z,  odom1.orientation.w);
+    if(fabs(curent_orientation1) > 2*M_PI){
+        curent_orientation1 = curent_orientation1 - (int)(curent_orientation1 / (2*M_PI)) * 2*M_PI;
+    }
+
 //    ROS_INFO_STREAM("curent_orientation" << curent_orientation1);
     double relative1 = des_theta - curent_orientation1; //delta theta
     double w_max1 = 2 * relative1 / delta_t;
     double dw1 = 2 * w_max1 / delta_t; //spped steps
 
     double curent_orientation2 = 2 * atan2( odom2.orientation.z,  odom2.orientation.w);
-//    ROS_INFO_STREAM("curent_orientation" << curent_orientation1);
+    if(fabs(curent_orientation2) > 2*M_PI){
+        curent_orientation2 = curent_orientation2 - (int)(curent_orientation2 / (2*M_PI)) * 2*M_PI;
+    }
     double relative_theta2 = des_theta - curent_orientation2; //delta theta
     double w_max2 = 2 * relative_theta2 / delta_t;
     double dw2 = 2 * w_max2 / delta_t; //spped steps
 
     double curent_orientation3 = 2 * atan2( odom3.orientation.z,  odom3.orientation.w);
-//    ROS_INFO_STREAM("curent_orientation" << curent_orientation1);
+    if(fabs(curent_orientation3) > 2*M_PI){
+        curent_orientation3 = curent_orientation3 - (int)(curent_orientation3 / (2*M_PI)) * 2*M_PI;
+    }
     double relative_theta3 = des_theta - curent_orientation3; //delta theta
     double w_max3 = 2 * relative_theta3 / delta_t;
     double dw3 = 2 * w_max3 / delta_t; //spped steps
@@ -492,10 +499,10 @@ void multiAgentController::turnAngle(double des_theta){
         geo_twist2.publish(cmd2);
         geo_twist3.publish(cmd3);
 
-        if (fabs(real_theta - des_theta) < 0.005)
+        if (fabs(real_theta - des_theta) < 0.006)
         {
             ROS_INFO_STREAM("---- Done orient ----");
-            orient = false;
+//            orient = false;
             avoid_go = true;
             break;
         }
@@ -535,14 +542,16 @@ void multiAgentController::avoidController(){
 
         double des_angle;
         ROS_INFO_STREAM("(main_angle) " << main_angle);
-        if(fabs(main_angle) < 1.2){
+
+        if(fabs(main_angle) < 1.0){
             if(main_angle > 0){
                 des_angle = main_angle - M_PI /1.8;
             }else{
                 des_angle = M_PI /1.8 - main_angle;
             }
+            ROS_INFO_STREAM("(des_angle) " << des_angle);
             turnAngle(des_angle);
-        }else if(fabs(main_angle) > 1.2 ){
+        }else if(fabs(main_angle) > 1.0 ){
             avoid_go = true;
         }
 
@@ -563,6 +572,7 @@ void multiAgentController::avoidController(){
                 geo_twist3.publish(cmd3);
 
                 ros::Duration(dt).sleep();
+                ROS_INFO_STREAM("avoidS1 " << avoidS1);
                 if(!avoidS1 && !avoidS2){
                     break;
                 }
