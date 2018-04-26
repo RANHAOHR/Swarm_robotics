@@ -5,6 +5,14 @@ multiAgentController::multiAgentController(ros::NodeHandle *nh) : nh_( *nh ) {
 	geo_twist2 = nh_.advertise <geometry_msgs::Twist> ("/robot2/wheels_position_controller/cmd_vel", 1, true);
 	geo_twist3 = nh_.advertise <geometry_msgs::Twist> ("/robot3/wheels_position_controller/cmd_vel", 1, true);
 
+    o1_dist = nh_.advertise <std_msgs::Float64> ("/robot1/obstacles/dist", 1, true);
+    o2_dist = nh_.advertise <std_msgs::Float64> ("/robot2/obstacles/dist", 1, true);
+    o3_dist = nh_.advertise <std_msgs::Float64> ("/robot3/obstacles/dist", 1, true);
+
+    o1_angle = nh_.advertise <std_msgs::Float64> ("/robot1/obstacles/angle", 1, true);
+    o2_angle = nh_.advertise <std_msgs::Float64> ("/robot2/obstacles/angle", 1, true);
+    o3_angle = nh_.advertise <std_msgs::Float64> ("/robot3/obstacles/angle", 1, true);
+
 	sub1 = nh_.subscribe("/robot1/wheels_position_controller/odom", 1, &multiAgentController::sub1Callback, this);
 	sub2 = nh_.subscribe("/robot2/wheels_position_controller/odom", 1, &multiAgentController::sub2Callback, this);
 	sub3 = nh_.subscribe("/robot3/wheels_position_controller/odom", 1, &multiAgentController::sub3Callback, this);
@@ -12,6 +20,8 @@ multiAgentController::multiAgentController(ros::NodeHandle *nh) : nh_( *nh ) {
 	lidar1 = nh_.subscribe("/robot1/laser_scan", 1, &multiAgentController::lidar1Callback, this);
 	lidar2 = nh_.subscribe("/robot2/laser_scan", 1, &multiAgentController::lidar2Callback, this);
 	lidar3 = nh_.subscribe("/robot3/laser_scan", 1, &multiAgentController::lidar3Callback, this);
+
+
 
     delta_t = 50; //the traveling time for robot to go to a point
 
@@ -143,6 +153,15 @@ void multiAgentController::lidar1Callback(const sensor_msgs::LaserScan& msg)
 //        ROS_INFO_STREAM("NO OBSTACLES for robot 1!");
     }
 
+    for (int k = 0; k < obs_s1.size(); ++k) {
+        angle_1.data = obs_s1[k][0];
+        distance_1.data = obs_s1[k][1];
+
+        o1_angle.publish(angle_1);
+        o1_dist.publish(distance_1);
+        ros::Duration(0.1).sleep();
+    }
+
     if(avoidS1 || avoidS2 || avoidS3){
         AVOID = true;
         RESCHEDULE = false;
@@ -233,6 +252,15 @@ void multiAgentController::lidar2Callback(const sensor_msgs::LaserScan& msg)
 //        ROS_INFO_STREAM("NO OBSTACLES for robot 2!");
 	}else{avoidS2 = true;}
 
+    for (int k = 0; k < obs_s2.size(); ++k) {
+        angle_2.data = obs_s2[k][0];
+        distance_2.data = obs_s2[k][1];
+
+        o2_angle.publish(angle_2);
+        o2_dist.publish(distance_2);
+        ros::Duration(0.1).sleep();
+    }
+
 }
 
 void multiAgentController::lidar3Callback(const sensor_msgs::LaserScan& msg)
@@ -302,16 +330,20 @@ void multiAgentController::lidar3Callback(const sensor_msgs::LaserScan& msg)
 			}
 
 	}
-// 	for (int k = 0; k < obs_s3.size(); ++k) {
-// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][0]);
-// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][1]);
-// 			avoidS3 = true;
-//
-// 	}
+
 	if( obs_s3.size() == 0){
 			avoidS3 = false;
 //        ROS_INFO_STREAM("NO OBSTACLES for robot 2!");
 	}else{avoidS3 = true;}
+
+    for (int k = 0; k < obs_s3.size(); ++k) {
+        angle_3.data = obs_s3[k][0];
+        distance_3.data = obs_s3[k][1];
+
+        o3_angle.publish(angle_3);
+        o3_dist.publish(distance_3);
+        ros::Duration(0.1).sleep();
+    }
 
 }
 

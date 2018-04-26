@@ -8,13 +8,9 @@ int main(int argc, char **argv) {
  
     multiAgentController Controller(&nh);
     ros::Duration(1).sleep();
-//    Controller.reCompute(); //get the position
-//    Controller.reOrient(); //turn a certain angle first
 
    while(ros::ok()){
-//       Controller.goToPosition();
-    Controller.scheduler();
-
+       Controller.scheduler();
        ros::spinOnce();
    }
     return 0;

@@ -8,7 +8,6 @@
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/PoseWithCovariance.h>
-#include <std_msgs/Float64.h>
 #include <std_msgs/Bool.h>
 #include <std_srvs/Trigger.h>
 #include <std_msgs/Float64.h>
@@ -46,6 +45,26 @@ private:
     ros::Subscriber lidar1;
     ros::Subscriber lidar2;
     ros::Subscriber lidar3;
+
+    ros::Publisher o1_dist;
+    ros::Publisher o2_dist;
+    ros::Publisher o3_dist;
+
+    std_msgs::Float64 distance_1;
+    std_msgs::Float64 distance_2;
+    std_msgs::Float64 distance_3;
+
+    ros::Publisher o1_angle;
+    ros::Publisher o2_angle;
+    ros::Publisher o3_angle;
+
+    std_msgs::Float64 angle_1;
+    std_msgs::Float64 angle_2;
+    std_msgs::Float64 angle_3;
+
+    ros::Publisher geo_twist1;
+    ros::Publisher geo_twist2;
+    ros::Publisher geo_twist3;
 public: 
 
     double delta_t;
@@ -119,10 +138,6 @@ public:
     geometry_msgs::Pose odom3;
 
     multiAgentController(ros::NodeHandle *nh);//constructor  
-
-    ros::Publisher geo_twist1;
-    ros::Publisher geo_twist2;
-    ros::Publisher geo_twist3;
 
     void goToPosition();
     void reOrient();
