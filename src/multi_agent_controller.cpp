@@ -221,22 +221,97 @@ void multiAgentController::lidar2Callback(const sensor_msgs::LaserScan& msg)
 
     }
 
-    for (int k = 0; k < obs_s2.size(); ++k) {
-//        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][0]);
-//        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][1]);
-        avoidS2 = true;
-
-    }
+//     for (int k = 0; k < obs_s2.size(); ++k) {
+// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][0]);
+// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][1]);
+//         avoidS2 = true;
+//
+//     }
 
     if( obs_s2.size() == 0){
         avoidS2 = false;
 //        ROS_INFO_STREAM("NO OBSTACLES for robot 2!");
-    }
+	}else{avoidS2 = true;}
 
 }
 
 void multiAgentController::lidar3Callback(const sensor_msgs::LaserScan& msg)
 {
+	double angle_min_ = msg.angle_min;
+	double angle_max_ = msg.angle_max;
+	double angle_increment_ = msg.angle_increment;
+
+	double cur_orientation = 2 * atan2( odom3.orientation.z,  odom3.orientation.w);
+
+	double upper_angle = angle_max_;
+	double lower_angle = angle_min_;
+
+	double upper_index = (int) ((upper_angle - angle_min_)/angle_increment_);
+	double lower_index = (int) ((lower_angle- angle_min_)/angle_increment_); //avoid 2 and 3
+
+	std::vector< std::vector<double> > obs_param;
+	std::vector<double> temp_obs;
+	temp_obs.resize(2);
+
+	bool hit = false;
+
+	double s3_dist = 0.0;
+	int cnt = 0;
+	double relative_angle_obs = 0;
+	for (int i = lower_index; i < upper_index; ++i) {
+			if (!isinf(msg.ranges[i]))
+			{
+					hit = true;
+					s3_dist += msg.ranges[i];
+					relative_angle_obs += (double) i * angle_increment_ + angle_min_;
+					cnt += 1;
+			} else{
+					if(hit){
+							s3_dist = s3_dist / cnt;
+							relative_angle_obs = relative_angle_obs / cnt;
+							temp_obs[0] = relative_angle_obs;
+							temp_obs[1] = s3_dist;
+							obs_param.push_back(temp_obs);
+							s3_dist = 0;
+							relative_angle_obs = 0;
+							cnt = 0;
+							hit = false;
+					}
+
+			}
+
+	}
+
+	if(hit){
+			s3_dist = s3_dist / cnt;
+			relative_angle_obs = relative_angle_obs / cnt;
+			temp_obs[0] = relative_angle_obs;
+			temp_obs[1] = s3_dist;
+			obs_param.push_back(temp_obs);
+	}
+
+	/* sensing fusion and obstacles starts here */
+	double teammate_1_angle = 0.785 - cur_orientation;
+	double teammate_2_angle = -0.785 - cur_orientation;
+//    ROS_INFO_STREAM("obs_s2.size() " << obs_s2.size());
+	obs_s3.clear();
+	for (int j = 0; j < obs_param.size(); ++j) {
+
+			if((obs_param[j][1] > 1.5 && obs_param[j][1] < 2.0 && fabs(obs_param[j][0] - teammate_1_angle) > 0.7 && fabs(obs_param[j][0] - teammate_2_angle) > 0.7 ) ){
+					obs_s3.push_back(obs_param[j]);
+			}
+
+	}
+// 	for (int k = 0; k < obs_s3.size(); ++k) {
+// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][0]);
+// //        ROS_INFO_STREAM("obs_s2: " << obs_s2[k][1]);
+// 			avoidS3 = true;
+//
+// 	}
+	if( obs_s3.size() == 0){
+			avoidS3 = false;
+//        ROS_INFO_STREAM("NO OBSTACLES for robot 2!");
+	}else{avoidS3 = true;}
 
 }
 
@@ -352,7 +427,7 @@ void multiAgentController::reOrient(){
 //        ROS_INFO_STREAM(" test_angle_real "<< real_theta);
 //        ROS_INFO_STREAM(" des_theta1 " << des_theta1);
         if (fabs(cmd2.angular.z) < fabs(w2_max) && turn_w2) {cmd2.angular.z += delta_w2 * dt; }
-        else { 
+        else {
             cmd2.angular.z -= delta_w2 * dt;
             turn_w2 = false;
         }
